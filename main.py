@@ -1,24 +1,15 @@
-import csv
-import json
+import utils
+import read_csv
+import charts
 
 
-def read_csv(path):
-    with open(path, 'r') as csv_file:
-        reader = csv.reader(csv_file, delimiter=',')
-        header = next(reader)
-        data = []
-        for row in reader:
-            iterable = zip(header, row)
-            country_dict = {key: value for key, value in iterable}
-            data.append(country_dict)
-        return data
-
-
-def write_json_file(json_file_path, data):
-    with open(json_file_path, 'w') as jsonFile:
-        jsonFile.write(json.dumps(data, indent=4))
+def run():
+    data = read_csv.read_csv('./data.csv')
+    country = 'Guatemala'
+    dict_by_country = utils.dict_by_country(data, country)
+    labes, values = utils.population_by_contry(dict_by_country)
+    charts.generate_bar_chart(labes, values)
 
 
 if __name__ == "__main__":
-    data = read_csv('./data.csv')
-    write_json_file('./data.json', data)
+    run()
