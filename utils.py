@@ -14,6 +14,11 @@ def population_by_contry(data):
     return population_dict.keys(), population_dict.values()
 
 
+def population_by_continent(data, continent):
+    data = list(map(lambda item: item['Continent'] == continent, data))
+    return data
+
+
 def world_population(data):
     country = [country['Country/Territory'] for country in data]
     World_Population_Percentage = [
