@@ -12,3 +12,10 @@ def population_by_contry(data):
         re.match(r'^([1-3][0-9]{3})', k))}
 
     return population_dict.keys(), population_dict.values()
+
+
+def world_population(data):
+    country = [country['Country/Territory'] for country in data]
+    World_Population_Percentage = [
+        wpp['World Population Percentage'] for wpp in data]
+    return country, World_Population_Percentage
