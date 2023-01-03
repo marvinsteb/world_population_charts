@@ -4,7 +4,7 @@ import re
 def dict_by_country(data, country):
     result = list(
         filter(lambda item: item['Country/Territory'] == country, data))
-    return result[0]
+    return result
 
 
 def population_by_contry(data):
