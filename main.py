@@ -9,6 +9,7 @@ def run():
     dict_by_country = utils.dict_by_country(data, country)
     labes, values = utils.population_by_contry(dict_by_country)
     charts.generate_bar_chart(labes, values)
+    data = utils.population_by_continent(data, 'South America')
     labels, values = utils.world_population(data)
     charts.generate_pie_chart(labels, values)
 
