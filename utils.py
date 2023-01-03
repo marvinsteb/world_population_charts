@@ -15,7 +15,7 @@ def population_by_contry(data):
 
 
 def population_by_continent(data, continent):
-    data = list(map(lambda item: item['Continent'] == continent, data))
+    data = list(filter(lambda item: item['Continent'] == continent, data))
     return data
 
 
